@@ -12,7 +12,12 @@ function probarValidarNombre() {
   );
 
   console.assert(
-    validarNombre("Matías") === "",
+    validarNombre("abcdef123456") === "El campo nombre solo acepta letras",
+    "Validar nombre no validó que el nombre solo tenga letras",
+  );
+
+  console.assert(
+    validarNombre("Matias") === "",
     "Validar nombre falló con un nombre valido",
   );
 }
@@ -41,7 +46,12 @@ function probarValidarDescripcionRegalo() {
     );
 
     console.assert(
-        validarDescripcionRegalo("Para Navidad me gustaría que Boca gane la Copa Libertadores") === "",
+        validarDescripcionRegalo(",.,.,.,.") === "El campo descripción regalo solo puede tener números y letras",
+        "La función validar descripción regalo no validó que fuera solo números y letras",
+    );
+
+    console.assert(
+        validarDescripcionRegalo("Regalo") === "",
         "Validar descripción regalo falló con una descripción valida",
     );
 }
